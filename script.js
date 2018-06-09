@@ -14,7 +14,7 @@ function smoothScroll(el) {
 }
 
 // Store the users response in 'answers' array
-$(".choice").click(function() {
+$(".highlight").click(function() {
   answer = $(this).text();
   answers.push(answer);
 });
