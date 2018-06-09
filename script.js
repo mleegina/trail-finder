@@ -1,7 +1,6 @@
 var answers = [];
 var answer;
 
-
 $("#start").click(function(e) {
   e.preventDefault();
   $("#q1, .quiz").fadeIn();
