@@ -1,6 +1,10 @@
 var answers = [];
 var answer;
 
+$(window).on('beforeunload', function() {
+  $(window).scrollTop(0);
+});
+
 $("#start").click(function(e) {
   e.preventDefault();
   $("#q1, .quiz").fadeIn();
@@ -14,8 +18,8 @@ function smoothScroll(el) {
 }
 
 // Store the users response in 'answers' array
-$(".highlight").click(function() {
-  answer = $(this).text();
+$(".choice").click(function() {
+  answer = $(this).find(".highlight").text();
   answers.push(answer);
 });
 
@@ -29,10 +33,12 @@ $('div[id^="q"]').click(function() {
   } else if ($(this).attr("id") == "q2") {
     $("#q3").fadeIn();
   } else if ($(this).attr("id") == "q3") {
-    readAnswer();
-    $("#result").fadeIn();
-    smoothScroll('#result');
     $(".quiz").fadeOut();
+
+    readAnswer();
+    smoothScroll('#result');
+    $("#result").fadeIn();
+    
   }
 });
 
